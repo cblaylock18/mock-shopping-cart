@@ -1,0 +1,18 @@
+structure and components that I'll need:
+-home page (general info and link to shopping page)
+-shop page
+-page for each item
+    -input field for # of items
+    -also increment and decrement buttons
+    -title for each
+    -add to cart button
+    -fakestoreapi https://fakestoreapi.com/
+-nav bar (same for each page)
+-shopping cart (RH side of shop page and accessible as RH pop up on any page)
+    -should always display # items in cart
+    -check out and pay buttons (don't need to work)
+    -cart total should update accordingly
+    -ability to remove items from cart
+    -once they checkout, reset cart
+
+-maybe use proptypes at the end?
