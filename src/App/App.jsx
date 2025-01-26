@@ -10,7 +10,8 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <Header className={styles.header}></Header>
+            <Header></Header>
+            {/* maybe pull the header, nav, footer, etc. elements out of their components and put them here for ease of layout styling */}
             <Nav cart={cart}></Nav>
             <main>
                 <Outlet />
