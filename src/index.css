@@ -1,0 +1,19 @@
+:root {
+    --first-color: #1be7ff;
+    --second-color: #6eeb83;
+    --third-color: #e4ff1a;
+    --fourth-color: #e8aa14;
+    --fifth-color: #ff5714;
+    font-family: monospace;
+}
+
+body {
+    background-color: var(--first-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#root {
+    flex: 0 1 clamp(320px, 100vw, 1500px);
+}

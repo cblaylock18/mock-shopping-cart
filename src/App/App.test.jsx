@@ -1,14 +1,16 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import { createMemoryRouter, RouterProvider } from "react-router";
+//remember for tests this needs to be react-router, not react-router-dom!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 import routes from "../routes";
 
-describe("Main Layout", () => {
-    it("renders the header, nav, main, and footer", () => {
-        const router = createMemoryRouter(routes, { initialEntries: ["/"] });
-        render(<RouterProvider router={router} />);
-        screen.debug(); // Check what renders
+describe("Main Layout with Nested Routes", () => {
+    it("renders the header, nav, main, footer, and home content", () => {
+        const router = createMemoryRouter(routes);
 
+        render(<RouterProvider router={router} />);
+
+        // Check layout roles
         expect(screen.getByRole("banner")).toBeInTheDocument(); // Header
         expect(screen.getByRole("navigation")).toBeInTheDocument(); // Nav
         expect(screen.getByRole("main")).toBeInTheDocument(); // Main content
@@ -18,7 +20,7 @@ describe("Main Layout", () => {
 
 describe("Home Page", () => {
     it("renders Home inside main when visiting /", async () => {
-        const router = createMemoryRouter(routes, { initialEntries: ["/"] });
+        const router = createMemoryRouter(routes);
         render(<RouterProvider router={router} />);
         expect(
             await screen.findByText(/this is the home content!/i)

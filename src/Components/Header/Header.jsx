@@ -5,7 +5,7 @@ function Header() {
     return (
         <>
             <h1 className={styles.h1}>
-                Shopping Cart App
+                Shopping Cart App{" "}
                 <span>
                     <img
                         src={fishLogo}
