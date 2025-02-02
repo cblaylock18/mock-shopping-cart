@@ -3,7 +3,7 @@ import fishLogo from "/fish.svg";
 
 function Header() {
     return (
-        <header>
+        <>
             <h1 className={styles.h1}>
                 Shopping Cart App
                 <span>
@@ -14,7 +14,7 @@ function Header() {
                     />
                 </span>
             </h1>
-        </header>
+        </>
     );
 }
 

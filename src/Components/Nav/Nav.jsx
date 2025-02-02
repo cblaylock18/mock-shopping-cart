@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Nav({ cart }) {
     return (
-        <nav className={styles.nav}>
+        <>
             <ul className={styles.ul}>
                 <li>
                     <Link to="/">Home</Link>
@@ -20,7 +20,7 @@ function Nav({ cart }) {
                     </Link>
                 </li>
             </ul>
-        </nav>
+        </>
     );
 }
 

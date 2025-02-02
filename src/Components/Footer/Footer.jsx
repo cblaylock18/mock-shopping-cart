@@ -3,7 +3,7 @@ import fishLogo from "/fish.svg";
 
 function Footer() {
     return (
-        <footer>
+        <>
             <h4 className={styles.h4}>
                 Footer
                 <span>
@@ -14,7 +14,7 @@ function Footer() {
                     />
                 </span>
             </h4>
-        </footer>
+        </>
     );
 }
 

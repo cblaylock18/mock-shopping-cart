@@ -10,13 +10,18 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <Header></Header>
-            {/* maybe pull the header, nav, footer, etc. elements out of their components and put them here for ease of layout styling */}
-            <Nav cart={cart}></Nav>
+            <header>
+                <Header />
+            </header>
+            <nav>
+                <Nav cart={cart} />
+            </nav>
             <main>
                 <Outlet />
             </main>
-            <Footer />
+            <footer>
+                <Footer />
+            </footer>
         </div>
     );
 }
