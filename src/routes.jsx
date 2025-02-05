@@ -1,7 +1,7 @@
 import App from "./App/App";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import { Home } from "./Components/Home/Home";
-import { Shopping } from "./Components/Shopping/Shopping";
+import { Products } from "./Components/Products/Products";
 import { Policies } from "./Components/Policies/Policies";
 import { Cart } from "./Components/Cart/Cart";
 
@@ -13,8 +13,8 @@ const routes = [
         children: [
             { index: true, element: <Home /> },
             {
-                path: "shopping",
-                element: <Shopping />, //add children here dynamically with useparams
+                path: "products",
+                element: <Products />, //add children here dynamically with useparams?
             },
             {
                 path: "policies",

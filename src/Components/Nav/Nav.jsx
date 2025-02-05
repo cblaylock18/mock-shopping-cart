@@ -9,7 +9,7 @@ function Nav({ cart }) {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/shopping">Shopping</Link>
+                    <Link to="/products">Products</Link>
                 </li>
                 <li>
                     <Link to="/policies">Policies</Link>

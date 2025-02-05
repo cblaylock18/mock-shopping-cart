@@ -1,3 +1,6 @@
-.main {
+.home {
     color: blue;
+}
+.home h2 {
+    font-size: 5rem;
 }

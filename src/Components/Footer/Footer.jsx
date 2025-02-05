@@ -1,11 +1,12 @@
-import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 import fishLogo from "/fish.svg";
+import styles from "./Footer.module.css";
 
 function Footer() {
     return (
-        <>
-            <h4 className={styles.h4}>
-                Footer
+        <div className={styles.footer}>
+            <h4>
+                Questions? Contact us <Link to={"/policies"}>here</Link>!
                 <span>
                     <img
                         src={fishLogo}
@@ -14,7 +15,7 @@ function Footer() {
                     />
                 </span>
             </h4>
-        </>
+        </div>
     );
 }
 

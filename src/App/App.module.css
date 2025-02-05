@@ -3,3 +3,10 @@
     flex-direction: column;
 }
 
+.app main {
+    margin-bottom: auto;
+}
+
+.app footer {
+    align-self: center;
+}
