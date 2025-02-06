@@ -5,7 +5,7 @@ import { Nav } from "../Components/Nav/Nav";
 import { Footer } from "../Components/Footer/Footer";
 import styles from "./App.module.css";
 
-const getProducts = (url) => {
+const useProducts = (url) => {
     const [products, setProducts] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -29,8 +29,8 @@ const getProducts = (url) => {
 };
 
 function App() {
-    const [cart, setCart] = useState([1, 2, 3, 4, 5]);
-    const { products, error, loading } = getProducts(
+    const [cart, setCart] = useState([]);
+    const { products, error, loading } = useProducts(
         "https://fakestoreapi.com/products"
     );
 

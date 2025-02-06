@@ -16,4 +16,30 @@
 
 .ul li:last-child {
     margin-left: auto;
+    position: relative;
+    text-align: center;
+}
+
+.ul a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.ul a:hover {
+    transform: scale(2);
+    text-decoration: underline;
+}
+
+.ul li:last-child a:hover::after {
+    content: "Click to see your cart and check out!";
+    position: absolute;
+    left: 0%;
+    top: 110%;
+    font-size: 1rem;
+    background-color: var(--second-color);
+    opacity: 80%;
+    padding: 0.6rem;
+    border-radius: 15px;
+    border: 1px solid var(--fifth-color);
 }

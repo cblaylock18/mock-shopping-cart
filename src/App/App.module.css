@@ -3,6 +3,17 @@
     flex-direction: column;
 }
 
+.app header {
+    display: flex;
+    align-items: center;
+}
+
+.app nav {
+    position: relative;
+    box-shadow: 0px 10px 15px -10px #000000;
+    border-bottom: 1px solid black;
+}
+
 .app main {
     margin-bottom: auto;
 }

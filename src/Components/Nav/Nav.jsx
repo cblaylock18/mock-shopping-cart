@@ -1,5 +1,6 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Nav({ cart }) {
     return (
@@ -15,8 +16,14 @@ function Nav({ cart }) {
                     <Link to="/policies">Policies</Link>
                 </li>
                 <li>
-                    <Link to="/cart">
-                        🛒<span>{cart.length}</span>
+                    <Link to={"/cart"}>
+                        Shopping Cart 🛒 <br />
+                        <span>
+                            {" "}
+                            {cart.length > 0
+                                ? `${cart.length} items`
+                                : "Empty!"}
+                        </span>
                     </Link>
                 </li>
             </ul>
