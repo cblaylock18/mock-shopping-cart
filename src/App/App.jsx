@@ -36,18 +36,12 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <header>
-                <Header />
-            </header>
-            <nav>
-                <Nav cart={cart} />
-            </nav>
+            <Header />
+            <Nav cart={cart} />
             <main>
                 <Outlet context={{ products, error, loading, cart, setCart }} />
             </main>
-            <footer>
-                <Footer />
-            </footer>
+            <Footer />
         </div>
     );
 }

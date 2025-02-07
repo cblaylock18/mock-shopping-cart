@@ -1,10 +1,9 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 function Nav({ cart }) {
     return (
-        <>
+        <nav className={styles.nav}>
             <ul className={styles.ul}>
                 <li>
                     <Link to="/">Home</Link>
@@ -17,17 +16,17 @@ function Nav({ cart }) {
                 </li>
                 <li>
                     <Link to={"/cart"}>
-                        Shopping Cart 🛒 <br />
+                        Cart 🛒 <br />
                         <span>
                             {" "}
                             {cart.length > 0
                                 ? `${cart.length} items`
-                                : "Empty!"}
+                                : "Add a product"}
                         </span>
                     </Link>
                 </li>
             </ul>
-        </>
+        </nav>
     );
 }
 

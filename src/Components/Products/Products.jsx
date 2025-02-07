@@ -18,11 +18,12 @@ function ProductCard({ product, cart, setCart }) {
     }
 
     const addToCart = () => {
-        // if (cart.length > 100) {
-        //     alert(
-        //         "Sorry, you may only buy 100 items at a time! For a larger order, contact us via the Policy page."
-        //     );
-        // }
+        if (cart.length >= 100) {
+            alert(
+                "Sorry, you may only buy 100 items at a time! For a larger order, contact us via the Policies page."
+            );
+            return;
+        }
         setCart((prev) => [...prev, product.id]);
     };
 

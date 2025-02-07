@@ -1,14 +1,16 @@
 :root {
-    --first-color: #1be7ff;
+    --first-color: #89deff;
     --second-color: #6eeb83;
-    --third-color: #e4ff1a;
-    --fourth-color: #e8aa14;
+    --third-color: #fff898;
+    --fourth-color: #a75900;
     --fifth-color: #ff5714;
     font-family: monospace;
 }
 
 body {
-    background-color: var(--first-color);
+    background-image: linear-gradient(var(--first-color), var(--second-color));
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
     display: flex;
     justify-content: center;

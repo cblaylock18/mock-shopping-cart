@@ -1,7 +1,14 @@
+.nav {
+    position: relative;
+    box-shadow: 0px 10px 15px -10px #000000;
+    border-bottom: 1px solid black;
+}
+
 .ul {
     list-style-type: none;
     background-color: var(--fourth-color);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -22,12 +29,11 @@
 
 .ul a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
 .ul a:hover {
-    transform: scale(2);
     text-decoration: underline;
 }
 
@@ -36,10 +42,15 @@
     position: absolute;
     left: 0%;
     top: 110%;
+    color: black;
     font-size: 1rem;
     background-color: var(--second-color);
-    opacity: 80%;
+    opacity: 90%;
     padding: 0.6rem;
     border-radius: 15px;
     border: 1px solid var(--fifth-color);
+}
+
+.ul span {
+    font-size: 1.3rem;
 }

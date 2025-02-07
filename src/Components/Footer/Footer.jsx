@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 
 function Footer() {
     return (
-        <div className={styles.footer}>
+        <footer className={styles.footer}>
             <h4>
                 Questions? Contact us <Link to={"/policies"}>here</Link>!
                 <span>
@@ -15,7 +15,7 @@ function Footer() {
                     />
                 </span>
             </h4>
-        </div>
+        </footer>
     );
 }
 
