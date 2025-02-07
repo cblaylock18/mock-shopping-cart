@@ -1,4 +1,108 @@
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.loading,
+.error {
+    margin: 3rem;
+    font-size: 3rem;
 }
+
+.loading div {
+    margin: 3rem;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.products {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    width: 300px;       /* Set a fixed width (or use a responsive value) */
+    height: 400px;      /* Set a fixed height for consistency */
+    border-radius: 15px;
+    background-image: linear-gradient(var(--fifth-color), var(--first-color));
+    box-shadow: 0px 10px 15px -10px #000000;
+    overflow: hidden;   /* Ensure no overflowing content */
+    margin: 1rem;
+  }
+  
+  /* Image container takes the available vertical space, but you can also fix its height */
+  .imageWrapper {
+    flex: 1 1 auto; 
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* The image fills the container and is cropped as needed */
+  .imageWrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;  /* Ensures the image covers the container without distorting */
+  }
+  
+  /* Footer always at the bottom with a fixed height */
+  .productFooter {
+    flex: 0 0 100px;  /* Fixed height for footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: add a semi-transparent background */
+  }
+  
+  /* Styling for product info (title and price) */
+  .productInfo {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .productInfo p {
+    margin: 0.2rem 0;
+    font-size: 1.3rem;
+  }
+  
+  /* Action buttons styling */
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .removeBtn,
+  .addBtn {
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .removeBtn {
+    background-color: var(--fourth-color);
+    color: white;
+  }
+  
+  .addBtn {
+    background-color: var(--second-color);
+    color: black;
+  }
+  

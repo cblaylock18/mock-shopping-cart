@@ -39,18 +39,27 @@ function ProductCard({ product, cart, setCart }) {
     return (
         <>
             <div className={styles.productCard}>
-                <div onClick={openDialog}>
-                    <p>{product.title}</p>
-                    <p>{product.price}</p>
-                    <p>{product.category}</p>
-                    <img
-                        src={product.image}
-                        alt={product.description}
-                        height="150px"
-                    />
+                <div className={styles.imageWrapper} onClick={openDialog}>
+                    <img src={product.image} alt={product.title} />
                 </div>
-                <button onClick={addToCart}>Add to Cart</button>
-                <button onClick={removeFromCart}>Remove from Cart</button>
+
+                <div className={styles.productFooter}>
+                    <div className={styles.productInfo}>
+                        <p>{product.title}</p>
+                        <p>${product.price}</p>
+                    </div>
+                    <div className={styles.actions}>
+                        <button
+                            className={styles.removeBtn}
+                            onClick={removeFromCart}
+                        >
+                            Remove from Cart
+                        </button>
+                        <button className={styles.addBtn} onClick={addToCart}>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
             </div>
             <dialog
                 ref={dialogRef}
@@ -61,11 +70,7 @@ function ProductCard({ product, cart, setCart }) {
                 <p>{product.price}</p>
                 <p>{product.category}</p>
                 <p>{product.description}</p>
-                <img
-                    src={product.image}
-                    alt={product.description}
-                    height="150px"
-                />
+                <img src={product.image} alt={product.title} />
                 <button onClick={closeDialog}>Close</button>
             </dialog>
         </>
@@ -77,8 +82,16 @@ function ProductCard({ product, cart, setCart }) {
 function Products() {
     const { products, error, loading, cart, setCart } = useOutletContext();
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>A network error was encountered</p>;
+    if (loading)
+        return (
+            <div className={styles.loading}>
+                Loading...<div></div>
+            </div>
+        );
+    if (error)
+        return (
+            <div className={styles.error}>We encountered a network error.</div>
+        );
 
     return (
         <div className={styles.products}>

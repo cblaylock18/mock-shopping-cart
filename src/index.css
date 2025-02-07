@@ -1,14 +1,14 @@
 :root {
-    --first-color: #89deff;
-    --second-color: #6eeb83;
+    --first-color: #89deffb2;
+    --second-color: #a5ecb1b0;
     --third-color: #fff898;
     --fourth-color: #a75900;
-    --fifth-color: #ff5714;
+    --fifth-color: #ffa37ebe;
     font-family: monospace;
 }
 
 body {
-    background-image: linear-gradient(var(--first-color), var(--second-color));
+    background-image: linear-gradient(var(--first-color), rgb(0, 0, 0));
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
@@ -18,4 +18,5 @@ body {
 
 #root {
     flex: 0 1 clamp(320px, 100vw, 1500px);
+    min-height: 100vh;
 }

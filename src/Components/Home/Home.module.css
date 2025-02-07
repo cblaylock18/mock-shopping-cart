@@ -18,35 +18,57 @@
     font-size: 1.8rem;
     color: black;
     background-color: var(--second-color);
-    box-shadow: 0px 10px 15px -10px #000000;
+    box-shadow: inset 0px -10px 15px -10px #000000;
     max-width: 700px;
     border-radius: 15px;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 1rem;
 }
 
 .content {
-    width: 90%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-items: center;
-    gap: 2rem;
+    gap: 3rem;
+    margin: 3rem;
 }
 
-/* left off styling the loading and error to match images */
+.content > div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
 
-.content > img,
-.loading,
-.error {
-    max-width: clamp(250px, 100%, 450px);
-    padding: 2rem;
+.content > div > p {
+    margin: 0;
+    font-size: 1.5rem;
+    max-height: min-content;
+    max-width: 300px;
+    background-color: var(--fourth-color);
+    color: white;
+    font-weight: bold;
+    text-align: center;
 }
 
 .home a {
     text-decoration: none;
     font-size: 2rem;
+    background-color: var(--first-color);
+    color: black;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 1s ease;
 }
 
 .home a:hover {
     text-decoration: underline;
+    transform: scale(1.1);
+    background-color: var(--third-color);
+    transition: all 1s ease;
 }
