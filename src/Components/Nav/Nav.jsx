@@ -1,7 +1,7 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
 
-function Nav({ cart }) {
+function Nav({ cart, cartTotal }) {
     return (
         <nav className={styles.nav}>
             <ul className={styles.ul}>
@@ -20,7 +20,7 @@ function Nav({ cart }) {
                         <span>
                             {" "}
                             {cart.length > 0
-                                ? `${cart.length} items`
+                                ? `${cart.length} items: $${cartTotal}`
                                 : "Add a product"}
                         </span>
                     </Link>

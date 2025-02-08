@@ -34,12 +34,37 @@ function App() {
         "https://fakestoreapi.com/products"
     );
 
+    let productPriceMap = {};
+    let cartTotal;
+    if (!error && !loading) {
+        products.forEach((product) => {
+            productPriceMap[product.id] = product.price;
+        });
+
+        cartTotal = cart
+            .reduce(
+                (accumulator, currentValue) =>
+                    accumulator + productPriceMap[currentValue],
+                0
+            )
+            .toFixed(2);
+    }
+
     return (
         <div className={styles.app}>
             <Header />
-            <Nav cart={cart} />
+            <Nav cart={cart} cartTotal={cartTotal} />
             <main>
-                <Outlet context={{ products, error, loading, cart, setCart }} />
+                <Outlet
+                    context={{
+                        products,
+                        error,
+                        loading,
+                        cart,
+                        setCart,
+                        cartTotal,
+                    }}
+                />
             </main>
             <Footer />
         </div>

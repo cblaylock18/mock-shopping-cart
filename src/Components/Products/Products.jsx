@@ -1,106 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import { useState, useRef } from "react";
+import { ProductCard } from "./ProductCard";
 import styles from "./Products.module.css";
-
-function ProductCard({ product, cart, setCart }) {
-    const dialogRef = useRef();
-
-    function openDialog() {
-        if (dialogRef.current) {
-            dialogRef.current.showModal();
-        }
-    }
-
-    function closeDialog() {
-        if (dialogRef.current) {
-            dialogRef.current.close();
-        }
-    }
-
-    const addToCart = () => {
-        if (cart.length >= 100) {
-            alert(
-                "Sorry, you may only buy 100 items at a time! For a larger order, contact us via the Policies page."
-            );
-            return;
-        }
-        setCart((prev) => [...prev, product.id]);
-    };
-
-    const removeFromCart = () => {
-        const itemIndex = cart.indexOf(product.id);
-        itemIndex >= 0
-            ? setCart((prev) => {
-                  return prev.toSpliced(itemIndex, 1);
-              })
-            : null;
-    };
-
-    const removeAllFromCart = () => {
-        setCart((prev) => {
-            return prev.filter((productId) => productId !== product.id);
-        });
-    };
-
-    return (
-        <>
-            <div className={styles.productCard}>
-                <div className={styles.imageWrapper} onClick={openDialog}>
-                    <img src={product.image} alt={product.title} />
-                </div>
-                <div className={styles.productFooter}>
-                    <div className={styles.productInfo}>
-                        <p className={styles.title}>{product.title}</p>
-                        <p className={styles.price}>${product.price}</p>
-                    </div>
-                    <div className={styles.actions}>
-                        <button
-                            className={styles.removeBtn}
-                            onClick={removeFromCart}
-                        >
-                            ➖
-                        </button>
-                        <button
-                            className={styles.removeAllBtn}
-                            onClick={removeAllFromCart}
-                        >
-                            🗑️{" "}
-                            {cart.reduce(
-                                (accumulator, currentValue) =>
-                                    accumulator +
-                                    (currentValue === product.id ? 1 : 0),
-                                0
-                            )}
-                        </button>
-                        <button className={styles.addBtn} onClick={addToCart}>
-                            ➕
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <dialog
-                ref={dialogRef}
-                className={styles.productCardDialog}
-                onClick={closeDialog}
-            >
-                <div className={styles.dialogContainer}>
-                    <div className={styles.imageWrapper}>
-                        <img src={product.image} alt={product.title} />
-                    </div>
-                    <p className={styles.title}>{product.title}</p>
-                    <p className={styles.category}>
-                        Category: {product.category}
-                    </p>
-                    <p className={styles.description}>{product.description}</p>
-                    <p className={styles.price}>${product.price}</p>
-                    <button onClick={closeDialog}>Close</button>
-                </div>
-            </dialog>
-        </>
-    );
-}
-
-// left off needing a way for user to add something to the cart!
 
 function Products() {
     const { products, error, loading, cart, setCart } = useOutletContext();
@@ -110,7 +11,7 @@ function Products() {
         setFilter(false);
     };
 
-    const onCategoryClick = (cat) => {
+    const onCategoryClick = (e, cat) => {
         setFilter(cat);
     };
 
@@ -136,23 +37,29 @@ function Products() {
                 Click each product for more details!
             </h3>
             <div className={styles.categories}>
-                <button onClick={filter ? unfilter : null}>Filter</button>
+                <button className={styles.unfilter} onClick={unfilter}>
+                    Unfilter
+                </button>
                 {Array.from(categories).map((category) => (
-                    <button key={category} onClick={onCategoryClick}>
-                        {category}
+                    <button
+                        key={category}
+                        onClick={(e) => onCategoryClick(e, category)}
+                        className={category === filter ? styles.selected : ""}
+                    >
+                        {category.toUpperCase()}
                     </button>
                 ))}
             </div>
             <div className={styles.products}>
                 {products.map((product) => {
-                    return (
+                    return product.category === filter || filter === false ? (
                         <ProductCard
                             key={product.id}
                             product={product}
                             cart={cart}
                             setCart={setCart}
                         />
-                    );
+                    ) : null;
                 })}
             </div>
         </>

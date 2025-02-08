@@ -1,0 +1,150 @@
+.productCard {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    background-image: linear-gradient(var(--fifth-color), var(--first-color));
+    box-shadow: 0px 10px 15px -10px #000000;
+    overflow: hidden;
+}
+
+.imageWrapper {
+    flex: 1 1 auto;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageWrapper img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.productFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.productInfo {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.productInfo p {
+    margin: 0.2rem 0;
+    font-size: 1.3rem;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.price {
+    color: rgb(0, 58, 0);
+}
+
+.actions {
+    width: 95%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.removeBtn,
+.addBtn,
+.removeAllBtn,
+.addAllBtn {
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.multiAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--third-color);
+    border-radius: 15px;
+}
+
+.addAllBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+}
+
+.multiAddInput {
+    font-size: 1.4rem;
+    width: 45px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.removeBtn {
+    background-color: var(--fifth-color);
+}
+
+.addBtn {
+    background-color: var(--second-color);
+}
+
+.productCardDialog {
+    border: none;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 0;
+    justify-self: center;
+    align-self: center;
+    background-color: white;
+    box-shadow: 0px 10px 15px -10px #000000;
+    width: clamp(300px, 80%, 600px);
+}
+
+.productCardDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialogContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.dialogContainer p {
+    margin: 0;
+}
+
+.dialogContainer .title {
+    font-size: 1.4rem;
+}
+
+.dialogContainer .description {
+    font-size: 1.2rem;
+}
+
+.productCardDialog button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--first-color);
+    color: black;
+    cursor: pointer;
+}
