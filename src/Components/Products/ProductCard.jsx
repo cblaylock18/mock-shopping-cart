@@ -28,7 +28,7 @@ function ProductCard({ product, cart, setCart }) {
     };
 
     const addAllToCart = () => {
-        if (cart.length + multiAdd > 100) {
+        if (cart.length + 1 * multiAdd > 100) {
             alert(
                 "Sorry, you may only buy 100 items at a time! Please adjust your order as necessary. For a larger order, contact us via the Policies page."
             );
