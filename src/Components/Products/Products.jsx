@@ -36,27 +36,44 @@ function ProductCard({ product, cart, setCart }) {
             : null;
     };
 
+    const removeAllFromCart = () => {
+        setCart((prev) => {
+            return prev.filter((productId) => productId !== product.id);
+        });
+    };
+
     return (
         <>
             <div className={styles.productCard}>
                 <div className={styles.imageWrapper} onClick={openDialog}>
                     <img src={product.image} alt={product.title} />
                 </div>
-
                 <div className={styles.productFooter}>
                     <div className={styles.productInfo}>
-                        <p>{product.title}</p>
-                        <p>${product.price}</p>
+                        <p className={styles.title}>{product.title}</p>
+                        <p className={styles.price}>${product.price}</p>
                     </div>
                     <div className={styles.actions}>
                         <button
                             className={styles.removeBtn}
                             onClick={removeFromCart}
                         >
-                            Remove from Cart
+                            ➖
+                        </button>
+                        <button
+                            className={styles.removeAllBtn}
+                            onClick={removeAllFromCart}
+                        >
+                            🗑️{" "}
+                            {cart.reduce(
+                                (accumulator, currentValue) =>
+                                    accumulator +
+                                    (currentValue === product.id ? 1 : 0),
+                                0
+                            )}
                         </button>
                         <button className={styles.addBtn} onClick={addToCart}>
-                            Add to Cart
+                            ➕
                         </button>
                     </div>
                 </div>
@@ -66,12 +83,18 @@ function ProductCard({ product, cart, setCart }) {
                 className={styles.productCardDialog}
                 onClick={closeDialog}
             >
-                <p>{product.title}</p>
-                <p>{product.price}</p>
-                <p>{product.category}</p>
-                <p>{product.description}</p>
-                <img src={product.image} alt={product.title} />
-                <button onClick={closeDialog}>Close</button>
+                <div className={styles.dialogContainer}>
+                    <div className={styles.imageWrapper}>
+                        <img src={product.image} alt={product.title} />
+                    </div>
+                    <p className={styles.title}>{product.title}</p>
+                    <p className={styles.category}>
+                        Category: {product.category}
+                    </p>
+                    <p className={styles.description}>{product.description}</p>
+                    <p className={styles.price}>${product.price}</p>
+                    <button onClick={closeDialog}>Close</button>
+                </div>
             </dialog>
         </>
     );
@@ -81,6 +104,15 @@ function ProductCard({ product, cart, setCart }) {
 
 function Products() {
     const { products, error, loading, cart, setCart } = useOutletContext();
+    const [filter, setFilter] = useState(false);
+
+    const unfilter = () => {
+        setFilter(false);
+    };
+
+    const onCategoryClick = (cat) => {
+        setFilter(cat);
+    };
 
     if (loading)
         return (
@@ -93,19 +125,37 @@ function Products() {
             <div className={styles.error}>We encountered a network error.</div>
         );
 
+    const categories = new Set();
+    products.forEach((product) => {
+        categories.add(product.category);
+    });
+
     return (
-        <div className={styles.products}>
-            {products.map((product) => {
-                return (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                        cart={cart}
-                        setCart={setCart}
-                    />
-                );
-            })}
-        </div>
+        <>
+            <h3 className={styles.header}>
+                Click each product for more details!
+            </h3>
+            <div className={styles.categories}>
+                <button onClick={filter ? unfilter : null}>Filter</button>
+                {Array.from(categories).map((category) => (
+                    <button key={category} onClick={onCategoryClick}>
+                        {category}
+                    </button>
+                ))}
+            </div>
+            <div className={styles.products}>
+                {products.map((product) => {
+                    return (
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            cart={cart}
+                            setCart={setCart}
+                        />
+                    );
+                })}
+            </div>
+        </>
     );
 }
 

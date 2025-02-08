@@ -1,11 +1,12 @@
 .app {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    min-height: 100vh;
 }
 
 .app main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 1rem;
 }

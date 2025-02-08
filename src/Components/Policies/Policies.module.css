@@ -1,3 +1,9 @@
-.policies {
-    color: orange;
+.policies p {
+    font-size: 2rem;
+    background-color: var(--third-color);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 10px 15px -10px #000000;
 }
