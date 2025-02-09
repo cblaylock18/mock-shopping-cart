@@ -11,8 +11,8 @@ function Products() {
         setFilter(false);
     };
 
-    const onCategoryClick = (e, cat) => {
-        setFilter(cat);
+    const onCategoryClick = (cat) => {
+        cat === filter ? unfilter() : setFilter(cat);
     };
 
     if (loading)
@@ -43,7 +43,7 @@ function Products() {
                 {Array.from(categories).map((category) => (
                     <button
                         key={category}
-                        onClick={(e) => onCategoryClick(e, category)}
+                        onClick={() => onCategoryClick(category)}
                         className={category === filter ? styles.selected : ""}
                     >
                         {category.toUpperCase()}
