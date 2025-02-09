@@ -1,3 +1,4 @@
+Initial Notes:
 structure and components that I'll need:
 -home page (general info and link to shopping page)
 -shop page
@@ -16,3 +17,7 @@ structure and components that I'll need:
     -once they checkout, reset cart
 
 -maybe use proptypes at the end?
+
+Notes 2/9/25
+Accessibility checks
+Testing

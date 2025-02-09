@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { ProductCard } from "./ProductCard";
 import styles from "./Products.module.css";
 
@@ -7,12 +7,12 @@ function Products() {
     const { products, error, loading, cart, setCart } = useOutletContext();
     const [filter, setFilter] = useState(false);
 
-    const unfilter = () => {
+    const unFilter = () => {
         setFilter(false);
     };
 
     const onCategoryClick = (cat) => {
-        cat === filter ? unfilter() : setFilter(cat);
+        cat === filter ? unFilter() : setFilter(cat);
     };
 
     if (loading)
@@ -37,8 +37,8 @@ function Products() {
                 Click each product for more details!
             </h3>
             <div className={styles.categories}>
-                <button className={styles.unfilter} onClick={unfilter}>
-                    Unfilter
+                <button className={styles.unFilter} onClick={unFilter}>
+                    Remove Filter
                 </button>
                 {Array.from(categories).map((category) => (
                     <button

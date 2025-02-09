@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./ProductCard.module.css";
 
 function ProductCard({ product, cart, setCart }) {
@@ -139,5 +140,31 @@ function ProductCard({ product, cart, setCart }) {
         </>
     );
 }
+
+ProductCard.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        category: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+    }).isRequired,
+    cart: PropTypes.array.isRequired,
+    setCart: PropTypes.func.isRequired,
+};
+
+ProductCard.defaultProps = {
+    product: {
+        id: 0,
+        title: "example product",
+        price: 100,
+        category: "example",
+        description: "this product appears when there was an unknown error",
+        image: "an error occurred",
+    },
+    cart: [],
+    setCart: () => alert("an error occurred"),
+};
 
 export { ProductCard };

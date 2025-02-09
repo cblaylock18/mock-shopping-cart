@@ -19,11 +19,13 @@ describe("Main Layout with Nested Routes", () => {
 });
 
 describe("Home Page", () => {
-    it("renders Home inside main when visiting /", async () => {
+    it("renders Home inside main when visiting /", () => {
         const router = createMemoryRouter(routes);
         render(<RouterProvider router={router} />);
         expect(
-            await screen.findByText(/this is the home content!/i)
+            screen.getByText(
+                /Welcome to the "So Cool It's Literally Unreal" shopping store!/i
+            )
         ).toBeInTheDocument();
     });
 });

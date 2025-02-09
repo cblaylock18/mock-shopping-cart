@@ -1,5 +1,6 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Nav({ cart, cartTotal }) {
     return (
@@ -29,5 +30,15 @@ function Nav({ cart, cartTotal }) {
         </nav>
     );
 }
+
+Nav.propTypes = {
+    cart: PropTypes.array.isRequired,
+    cartTotal: PropTypes.number.isRequired,
+};
+
+Nav.defaultProps = {
+    cart: [],
+    cartTotal: 0,
+};
 
 export { Nav };

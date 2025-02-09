@@ -41,13 +41,15 @@ function App() {
             productPriceMap[product.id] = product.price;
         });
 
-        cartTotal = cart
-            .reduce(
-                (accumulator, currentValue) =>
-                    accumulator + productPriceMap[currentValue],
-                0
-            )
-            .toFixed(2);
+        cartTotal =
+            1 *
+            cart
+                .reduce(
+                    (accumulator, currentValue) =>
+                        accumulator + productPriceMap[currentValue],
+                    0
+                )
+                .toFixed(2);
     }
 
     return (
