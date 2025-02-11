@@ -37,18 +37,19 @@ function Products() {
                 Click each product for more details!
             </h3>
             <div className={styles.categories}>
-                <button className={styles.unFilter} onClick={unFilter}>
-                    Remove Filter
-                </button>
                 {Array.from(categories).map((category) => (
                     <button
                         key={category}
                         onClick={() => onCategoryClick(category)}
                         className={category === filter ? styles.selected : ""}
+                        aria-label={`filter by ${category}`}
                     >
                         {category.toUpperCase()}
                     </button>
                 ))}
+                <button className={styles.unFilter} onClick={unFilter}>
+                    Remove Filter
+                </button>
             </div>
             <div className={styles.products}>
                 {products.map((product) => {

@@ -67,9 +67,9 @@ function ProductCard({ product, cart, setCart }) {
     return (
         <>
             <div className={styles.productCard}>
-                <div className={styles.imageWrapper} onClick={openDialog}>
+                <button className={styles.imageWrapper} onClick={openDialog}>
                     <img src={product.image} alt={product.title} />
-                </div>
+                </button>
                 <div className={styles.productFooter}>
                     <div className={styles.productInfo}>
                         <p className={styles.title}>{product.title}</p>
@@ -79,12 +79,14 @@ function ProductCard({ product, cart, setCart }) {
                         <button
                             className={styles.removeBtn}
                             onClick={removeFromCart}
+                            aria-label="Remove one item from cart"
                         >
                             ➖
                         </button>
                         <button
                             className={styles.removeAllBtn}
                             onClick={removeAllFromCart}
+                            aria-label="Remove all items of this product from cart"
                         >
                             🗑️{" "}
                             {cart.reduce(
@@ -94,12 +96,17 @@ function ProductCard({ product, cart, setCart }) {
                                 0
                             )}
                         </button>
-                        <button className={styles.addBtn} onClick={addToCart}>
+                        <button
+                            className={styles.addBtn}
+                            onClick={addToCart}
+                            aria-label="Add one item to cart"
+                        >
                             ➕
                         </button>
                         <div className={styles.multiAdd}>
                             <input
                                 name="multiadd"
+                                aria-label="Enter quantity to add"
                                 id="multiadd"
                                 className={styles.multiAddInput}
                                 type="number"
@@ -112,6 +119,7 @@ function ProductCard({ product, cart, setCart }) {
                             <button
                                 className={styles.addAllBtn}
                                 onClick={addAllToCart}
+                                aria-label="Add multiple items to cart"
                             >
                                 🛍️{" "}
                             </button>
@@ -123,18 +131,28 @@ function ProductCard({ product, cart, setCart }) {
                 ref={dialogRef}
                 className={styles.productCardDialog}
                 onClick={closeDialog}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="dialogTitle"
             >
                 <div className={styles.dialogContainer}>
                     <div className={styles.imageWrapper}>
-                        <img src={product.image} alt={product.title} />
+                        <img src={product.image} alt={`${product.title}`} />
                     </div>
-                    <p className={styles.title}>{product.title}</p>
+                    <p id="dialogTitle" className={styles.title}>
+                        {product.title}
+                    </p>
                     <p className={styles.category}>
                         Category: {product.category}
                     </p>
                     <p className={styles.description}>{product.description}</p>
                     <p className={styles.price}>${product.price}</p>
-                    <button onClick={closeDialog}>Close</button>
+                    <button
+                        onClick={closeDialog}
+                        aria-label="Close details dialog"
+                    >
+                        Close
+                    </button>
                 </div>
             </dialog>
         </>
