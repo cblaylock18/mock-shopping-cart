@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 function Footer() {
     return (
         <footer className={styles.footer}>
-            <h4>
+            <h3>
                 Questions? Contact us <Link to={"/policies"}>here</Link>!
                 <span>
                     <img
@@ -14,7 +14,7 @@ function Footer() {
                         height="30px"
                     />
                 </span>
-            </h4>
+            </h3>
         </footer>
     );
 }
