@@ -50,7 +50,7 @@ A React-based shopping cart application that allows users to browse items, add t
 ## Usage
 
 1. **View Products**: Go to the “Products” page to see a list of available items.
-2. **Product Filtering/Searching**: Let users filter items by category or price.  
+2. **Product Filtering**: Let users filter items by category.  
 3. **Adjust Items in Cart**: Use the '+' or '-' to adjust item quantity in your cart. Also, type a number and push the shopping bag icon to add in bulk. Click the trash icon to delete all of that item in your cart.
 4. **Cart Management**: View your cart to update quantities or remove items as well. 
 5. **Check Out**: The app displays a running total, but the checkout process is a mock/demo only.
